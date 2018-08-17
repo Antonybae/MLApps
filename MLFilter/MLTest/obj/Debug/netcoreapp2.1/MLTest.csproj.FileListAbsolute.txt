@@ -1,0 +1,13 @@
+D:\Projects\MLFilter\MLTest\bin\Debug\netcoreapp2.1\MLTest.deps.json
+D:\Projects\MLFilter\MLTest\bin\Debug\netcoreapp2.1\MLTest.runtimeconfig.json
+D:\Projects\MLFilter\MLTest\bin\Debug\netcoreapp2.1\MLTest.runtimeconfig.dev.json
+D:\Projects\MLFilter\MLTest\bin\Debug\netcoreapp2.1\MLTest.dll
+D:\Projects\MLFilter\MLTest\obj\Debug\netcoreapp2.1\MLTest.csproj.CoreCompileInputs.cache
+D:\Projects\MLFilter\MLTest\obj\Debug\netcoreapp2.1\MLTest.AssemblyInfoInputs.cache
+D:\Projects\MLFilter\MLTest\obj\Debug\netcoreapp2.1\MLTest.AssemblyInfo.cs
+D:\Projects\MLFilter\MLTest\bin\Debug\netcoreapp2.1\Data\video_card_test.csv
+D:\Projects\MLFilter\MLTest\bin\Debug\netcoreapp2.1\Data\video_card_train.csv
+D:\Projects\MLFilter\MLTest\bin\Debug\netcoreapp2.1\MLTest.pdb
+D:\Projects\MLFilter\MLTest\obj\Debug\netcoreapp2.1\MLTest.dll
+D:\Projects\MLFilter\MLTest\obj\Debug\netcoreapp2.1\MLTest.pdb
+D:\Projects\MLFilter\MLTest\obj\Debug\netcoreapp2.1\MLTest.csprojAssemblyReference.cache

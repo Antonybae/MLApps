@@ -27,17 +27,18 @@ namespace MLTest
 		{
 			Console.WriteLine("Updating bitcoin data...");
 			PriceGraphManager manager = new PriceGraphManager();
-			//manager.GetBitcoinData();
-			//manager.ConvertJsonToBitcoinCource();
-			//Console.WriteLine("Current bitcoin value: {0}", manager.bitcoinCources.Last().price);
+			manager.GetBitcoinData();
+			manager.ConvertJsonToBitcoinCource();
+			Console.WriteLine("Current bitcoin value: {0}", manager.bitcoinCources.Last().price);
 
 			Console.WriteLine("Updating videocard prices...");
 			manager.GetVideoCardData();
 			manager.ConvertJsonToVideoCard();
-			Console.WriteLine("Current videocard value: ", manager.videoCards.Last().price);
+			Console.WriteLine("Current videocard value: {0}", manager.videoCards.Last().price);
 
 			Console.WriteLine("Writing data to disk...");
-			manager.CreateCSV();
+			manager.CreateCSV(_dataPath);
+			manager.CreateCSV(_testDataPath);
 
 			Console.WriteLine("Starting learning...");
 
@@ -45,7 +46,7 @@ namespace MLTest
 			Evaluate(model);
 
 			PriceDataPrediction prediction = model.Predict(TestPricing.videocardPrice);
-			Console.WriteLine("Predicted price: {0}, actual price: 18207", prediction.price);
+			Console.WriteLine("Predicted price: {0}", prediction.price);
 		}
 
 		public static async Task<PredictionModel<PriceData, PriceDataPrediction>> Train()

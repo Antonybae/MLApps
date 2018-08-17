@@ -14,7 +14,7 @@ namespace MLTest
 	public class BitcoinCource
 	{
 		[JsonProperty("y")]
-		public int price { get; set; }
+		public float price { get; set; }
 	}
 
 	public class VideoCard
@@ -61,9 +61,28 @@ namespace MLTest
 			}
 		}
 
-		public void CreateCSV()
+		public void CreateCSV(string path)
 		{
-			throw new NotImplementedException("create csv not implemented");
+			List<PriceData> datas = FindConnectionPoints();
+
+			//TODO: less hardcoded way
+			string header = string.Empty;
+			header += nameof(PriceData.manufacturer) + ',';
+			header += nameof(PriceData.model) + ',';
+			header += nameof(PriceData.bitcoinCource) + ',';
+			header += nameof(PriceData.price) + Environment.NewLine;
+			
+			foreach (var data in datas)
+			{
+				string values = string.Empty;
+				values += data.manufacturer + ",";
+				values += data.model + ",";
+				values += data.bitcoinCource.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + ",";
+				values += data.price.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + Environment.NewLine;
+				header += values;
+			}
+
+			File.WriteAllText(path, header);
 		}
 
 		public void ConvertJsonToVideoCard()
@@ -79,7 +98,17 @@ namespace MLTest
 
 		public List<PriceData> FindConnectionPoints()
 		{
-			var interval = bitcoinCources.Count
+			var interval = bitcoinCources.Count / videoCards.Count;
+			var videoCardIndex = 0;
+			List<PriceData> priceDatas = new List<PriceData>();
+			for (int i = 0; i < videoCards.Count * interval;)
+			{
+				priceDatas.Add(new PriceData(){bitcoinCource = bitcoinCources[i].price, price = videoCards[videoCardIndex].price, manufacturer = "NVIDIA", model = "gtx1060"});
+				videoCardIndex++;
+				i += interval;
+			}
+
+			return priceDatas;
 		}
 
 		public void ConvertJsonToBitcoinCource()
